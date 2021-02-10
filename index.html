@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
     <style>
       * {
         margin:0;
@@ -20,11 +23,474 @@
         font-family: 'Poppins', sans-serif;
       }
 
+      :root {
+        /* Pallete */
+        --orange: #CC8139;
+        --green: #4ECCA3;
+        --black: #393E46;
+        --white: #FFF;
+
+        /* padding from the page */
+        --content-width: 85%;
+
+        /* Standard Font Sizes */
+        --big: 6rem;
+        --medium: 3rem;
+        --middle:2.25rem;
+        --little: 1.5rem;
+        /* (special fonts) */
+        --project-name: 1.8rem;
+      }
+
+      /* Navbar Section */
+      #navbar {
+        display: flex;
+        position: fixed;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--black);
+        min-height: 15vh;
+        padding: 0 7.5%;
+        width: 100%;
+        z-index: 1;
+      }
+      /* This is the background for the logo */
+      .nav-brand::before {
+        content: "";
+        background-color: var(--orange);
+        border-radius: 20px;
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 200%;
+        z-index: -1;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 1rem;
+      }
+
+      .nav-brand img {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        padding: 0.5rem;
+      }
+
+      .nav-brand p {
+        font-weight:  600;
+        display: inline;
+        text-align: center;
+        align-items: center;
+        color: var(--white);
+        padding: 0 0.5rem;
+      }
+
+      .nav-list {
+        list-style-type: none;
+        display: flex;
+      }
+
+      .nav-list a {
+        text-decoration: none;
+        color: var(--white);
+        font-size: var(--little);
+        padding: 0 1.5rem;
+      }
+
+      .nav-list a:hover {
+        color: var(--green);
+      }
+
+      /* Welcome - Hero Section */
+      #welcome-section {
+        height: 100vh;
+        width: var(--content-width);
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+
+      .hero-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-weight: 600;
+        align-items: center;
+      }
+
+      .hero-pic {
+        border-radius: 50%;
+        border: 5px solid;
+        border-color: var(--green);
+        width: 241px;
+        height: 241px;
+      }
+
+      .hero-title {
+        font-size: var(--big);
+        color: var(--black);
+      }
+
+      .hero-description , .hero-hightlights {
+        font-size: var(--medium);
+        color: var(--black);
+      }
+
+      .hero-highlights {
+        color: var(--green);
+        font-style: italic;
+      }
+
+      .hero-highlights:hover {
+        color: var(--orange);
+      }
+
+      /* Project Section */
+      #project {
+        background-color: var(--orange);
+      }
+
+      .project-container {
+        width: var(--content-width);
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+      }
+
+      .project-container h3 {
+        font-size: var(--middle);
+        color: var(--white);
+        padding: 2rem 0;
+      }
+
+      .flex-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .project-tile {
+        position: relative;
+        margin: 4rem;
+      }
+
+      .first-circle, .second-circle {
+        position: absolute;
+      }
+
+      .first-circle{
+        top: -15%;
+        left: -15%;
+      }
+
+      .second-circle{
+        bottom: -15%;
+        right: -15%;
+      }
+
+      .project-name {
+        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+        border: 2px solid #FFFFFF;
+        box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.1), inset 5px 5px 10px rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(40px);
+        border-radius: 30px;
+        width: 300px;
+        height: 277px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--white);
+        text-decoration: none;
+        font-size: var(--little);
+      }
+
+      .project-name:hover {
+        color: var(--black);
+        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%);
+      }
+
+      /* CTA Section */
+      .cta-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20rem 0;
+        width: var(--content-width);
+        margin: auto;
+        text-align: center;
+      }
+
+      .cta-container h2 {
+        font-size: var(--medium);
+        color: var(--black);
+        letter-spacing: 14;
+      }
+
+      .cta-container p {
+        font-size: var(--little);
+        color: var(--black);
+      }
+
+      .cta-button {
+        background-color: transparent;
+        padding: 1rem 8rem;
+        margin-top: 3rem;
+        text-decoration: none;
+        color: var(--green);
+        font-size: var(--middle);
+        border: 2px solid;
+        border-color: var(--green);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+      }
+
+      .cta-button:hover {
+        background-color: var(--green);
+        color: var(--white);
+      }
+
+      /* Footer Section */
+      footer {
+        background-color: var(--black);
+      }
+
+      .footer-container {
+        width: var(--content-width);
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+      }
+
+      .socials-list {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+      }
+
+      .socials-list i {
+        color: var(--white);
+        text-decoration: none;
+        margin: 0 1rem;
+      }
+
+      .socials-list i:hover {
+        color: var(--green)
+      }
+
+      .company-box {
+        background-color: var(--orange);
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 20px;
+      }
+
+      .company-name , .company-address , .company-box i {
+        color: var(--white);
+      }
+
+      .company-description {
+        margin-left: 1rem;
+      }
+
+
+      .copyright {
+        text-align: center;
+        color: var(--white);
+        font-weight: 300;
+      }
+
+      @media (max-width: 650px) {
+        #navbar {
+          justify-content: center;
+          flex-direction: column;
+
+        }
+
+        .nav-list {
+          display: none;
+          position: absolute;
+          background-color: var(--black);
+          width: 100%;
+          padding: 1rem;
+          bottom: -35%;
+          justify-content: center;
+        }
+
+
+        #navbar:hover .nav-list {
+          display: flex;
+        }
+
+        .cta-container {
+          padding: 8rem 0;
+        }
+
+        .cta-button {
+          padding: 0.5rem 0;
+          width: 100%;
+        }
+
+        .footer-container {
+          flex-direction: column;
+        }
+
+        .company-box {
+          margin-bottom: 2rem;
+        }
+
+      }
+
+      @media (max-width: 400px) {
+        .nav-list {
+          flex-direction: column;
+          bottom: -90%;
+        }
+      }
+
+
     </style>
 
 
   </head>
   <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-brand">
+        <img src="images/profile-pic.jpg" alt="">
+        <p>Hi, I'm Marco</p>
+      </div>
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#project">Projects</a></li>
+        <li><a href="#cta">Contacts</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="welcome-section">
+        <div class="hero-container">
+          <img class="hero-pic" src="images/profile-pic.jpg" alt="profile-pic">
+          <h1 class="hero-title">Hi,</h1>
+          <p class="hero-description">I'm Marco, a <span class="hero-highlights">web developer.</span></p>
+        </div>
+      </section>
+
+      <!-- Project Section -->
+      <section id="project">
+        <!-- This is actually the entire section container -->
+        <div class="project-container">
+          <h3>Some of my Projects</h3>
+          <!-- This is the flex wrapper for the project-tile with wrap property -->
+          <div class="flex-wrapper">
+            <!-- Every project-tile contain a project  -->
+
+            <!-- First -->
+            <div class="project-tile">
+              <img class="first-circle" src="images/first-circle.png" alt="">
+              <img class="second-circle" src="images/second-circle.png" alt="">
+              <a href="https://markoscapin.github.io/Zombie-Nightmare-Landing-Page/" class="project-name">Zombie Nightmare Landing Page</a>
+            </div>
+
+            <!-- second -->
+            <div class="project-tile">
+              <img class="first-circle" src="images/first-circle.png" alt="">
+              <img class="second-circle" src="images/second-circle.png" alt="">
+              <a href="https://markoscapin.github.io/Fr-d-ric-Chopin-Tribute-Page/" class="project-name">Chopin's Tribute Page</a>
+            </div>
+
+            <!-- second -->
+            <div class="project-tile">
+              <img class="first-circle" src="images/first-circle.png" alt="">
+              <img class="second-circle" src="images/second-circle.png" alt="">
+              <a href="https://markoscapin.github.io/Survay-Form-project-FCC/" class="project-name">Product Survay Form</a>
+            </div>
+
+            <!-- second -->
+            <div class="project-tile">
+              <img class="first-circle" src="images/first-circle.png" alt="">
+              <img class="second-circle" src="images/second-circle.png" alt="">
+              <a href="https://markoscapin.github.io/huddle-landing-page/" class="project-name">Huddle's Landing Page by Frontend Mentor</a>
+            </div>
+
+
+            <!-- second -->
+            <div class="project-tile">
+              <img class="first-circle" src="images/first-circle.png" alt="">
+              <img class="second-circle" src="images/second-circle.png" alt="">
+              <a href="https://markoscapin.github.io/four-card-feature-section/" class="project-name">Four Card Features by Frontend Mentor</a>
+            </div>
+
+
+            <!-- second -->
+            <div class="project-tile">
+              <img class="first-circle" src="images/first-circle.png" alt="">
+              <img class="second-circle" src="images/second-circle.png" alt="">
+              <a href="https://markoscapin.github.io/social-proof-section/" class="project-name">Social Proof by Frontend Mentor</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section id="cta">
+        <div class="cta-container">
+          <h2>Want to collaborate?</h2>
+          <p>Ask for a coffe and let's talk about it!</p>
+          <a class="cta-button" href="mailto:markoscapin@gmail.com">Contact me</a>
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+      <section class="footer-section">
+
+        <div class="footer-container">
+
+          <div class="company-box">
+            <i class="fas fa-mug-hot fa-5x"></i>
+            <div class="company-description">
+              <p class="company-name">CoffeTime S.r.l.</p>
+              <p class="company-address">Venezia, Italy</p>
+            </div>
+          </div>
+
+
+          <ul class="socials-list">
+            <!-- Twitter -->
+            <li><a href="https://twitter.com/MarkScapin" target="_blank"><i class="fab fa-twitter-square fa-3x"></i></a></li>
+            <!-- Github -->
+            <li><a href="https://github.com/markoscapin/" target="_blank"><i class="fab fa-github-square fa-3x"></i></a></li>
+            <!-- freeCodeCamp -->
+            <li><a href="https://www.freecodecamp.org/markoscaffee" target="_blank"><i class="fab fa-free-code-camp fa-3x"></i></a></li>
+            <!-- mail -->
+            <li><a href="mailto:markoscapin@gmail.com"><i class="fas fa-envelope-square fa-3x"></i></a></li>
+          </ul>
+        </div>
+
+      </section>
+
+      <p class="copyright">All rights reserved. Made by Marco Scapin</p>
+    </footer>
 
   </body>
 </html>
