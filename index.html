@@ -191,19 +191,18 @@
 
       .first-circle{
         top: -15%;
-        left: -15%;
+        left: -10%;
       }
 
       .second-circle{
         bottom: -15%;
-        right: -15%;
+        right: -10%;
       }
 
       .project-name {
         background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
         border: 2px solid #FFFFFF;
         box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.1), inset 5px 5px 10px rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(40px);
         border-radius: 30px;
         width: 300px;
         height: 277px;
@@ -319,16 +318,16 @@
         #navbar {
           justify-content: center;
           flex-direction: column;
+          position: sticky;
 
         }
 
         .nav-list {
           display: none;
-          position: absolute;
+          position: relative;
           background-color: var(--black);
           width: 100%;
           padding: 1rem;
-          bottom: -35%;
           justify-content: center;
         }
 
@@ -357,10 +356,20 @@
       }
 
       @media (max-width: 400px) {
+        #navbar {
+          min-height: 20vh;
+        }
         .nav-list {
           flex-direction: column;
-          bottom: -90%;
+          padding: 0 1rem 1rem 1rem;
         }
+      }
+
+      @supports ((backdrop-filter: blur(10px))) or (-webkit-backdrop-filter: blur(10px)) {
+        .project-name {
+          backdrop-filter: blur(40px);
+          -webkit-backdrop-filter: blur(40px);
+    }
       }
 
 
